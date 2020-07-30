@@ -15,7 +15,7 @@
   </head>
   <body>
     <?php require_once 'process.php'; ?>
-
+    <div class="container">
     <?php
       //pre_r() organizes the array when printing to make easy reading in html.
       function pre_r($array){
@@ -45,7 +45,10 @@
           <tr>
             <td><?php echo $row['name']; ?></td>
             <td><?php echo $row['location']; ?></td>
-            <td></td>
+            <td>
+              <a href="index.php?edit=<?php echo $row['id']; ?>" class="btn btn-info">Edit</a>
+              <a href="process.php?delete=<?php echo $row['id']; ?>" class="btn btn-danger">Delete</a>
+            </td>
           </tr>
         <?php endwhile; ?>
         </table>
@@ -65,6 +68,7 @@
         <button type="submit" class="btn btn-primary" name="save">Save</button>
       </div>
     </form>
+    </div>
     </div>
   </body>
 </html>
