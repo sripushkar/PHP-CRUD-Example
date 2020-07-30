@@ -17,7 +17,7 @@
     <?php require_once 'process.php'; ?>
 
     <?php
-      //pre_r() organizes the array when printing to make easy reading in html. 
+      //pre_r() organizes the array when printing to make easy reading in html.
       function pre_r($array){
         echo '<pre>';
         print_r($array);
@@ -26,11 +26,30 @@
 
       $mysqli = new mysqli('localhost', 'root', 'root', 'crud') or die(mysqli_error($mysqli));
       $result = $mysqli->query("SELECT * FROM data") or die($mysqli->error);
-      pre_r($result);
+      //pre_r($result);
 
       //fetch_assoc() grabs the first record from the query and returns it as an assoc array.
-      pre_r($result->fetch_assoc());
+      //pre_r($result->fetch_assoc());
     ?>
+
+    <div class="row justify-content-center">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Location</th>
+              <th colspan="2">Action</th>
+            </tr>
+          </thead>
+          <?php while($row = $result->fetch_assoc()): ?>
+          <tr>
+            <td><?php echo $row['name']; ?></td>
+            <td><?php echo $row['location']; ?></td>
+            <td></td>
+          </tr>
+        <?php endwhile; ?>
+        </table>
+    </div>
 
     <div class="row justify-content-center">
     <form action="index.php" method="post">
