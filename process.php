@@ -5,6 +5,11 @@ session_start();
 //DB connection
 $mysqli = new mysqli('localhost', 'root', 'root', 'crud') or die(mysqli_error($mysqli));
 
+$name = '';
+$location = '';
+$update = false;
+$id = 0;
+
 //This executes when the save button is posted from index.php
 if(isset($_POST['save'])){
   $name = $_POST['name'];
@@ -27,6 +32,17 @@ if(isset($_GET['delete'])){
   $_SESSION['msg_type'] = "danger";
 
   header('location: index.php');
+}
+
+if(isset($_GET['edit'])){
+  $id = $_GET['edit'];
+  $result = $mysqli->query("SELECT * FROM data WHERE id = $id") or die($mysqli->error);
+  if(count($result == 1)){
+    $row = $result->fetch_assoc();
+    $name = $row['name'];
+    $location = $row['location'];
+    $update = true;
+  }
 }
 
 ?>
