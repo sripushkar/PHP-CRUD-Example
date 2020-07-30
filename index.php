@@ -15,6 +15,15 @@
   </head>
   <body>
     <?php require_once 'process.php'; ?>
+    <?php if(isset($_SESSION['message'])): ?>
+
+    <div class="alert alert-<?php echo $_SESSION['msg_type']?>">
+      <?php
+        echo $_SESSION['message'];
+        unset($_SESSION['message']);
+      ?>
+    </div>
+  <?php endif ?>
     <div class="container">
     <?php
       //pre_r() organizes the array when printing to make easy reading in html.
@@ -55,7 +64,7 @@
     </div>
 
     <div class="row justify-content-center">
-    <form action="index.php" method="post">
+    <form action="process.php" method="post">
       <div class="form-group">
         <label>Name</label>
         <input type="text" name="name" class="form-control" placeholder="Enter your name">
