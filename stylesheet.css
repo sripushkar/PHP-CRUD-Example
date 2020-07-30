@@ -1,0 +1,36 @@
+/*
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya&display=swap');
+
+h1,h2,h3,h4,h5,h6{
+  font-family: 'Lato', sans-serif;
+}
+
+p, a, tr, th, td{
+  font-family: 'Alegreya', serif;
+}
+
+a{
+  color: #8c52ff;
+  font-size: 1.2em;
+}
+
+p,form{
+  font-size: 1.5em;
+}
+
+input{
+  margin-bottom: 1%;
+}
+
+nav li{
+  display: inline;
+  margin-right: 1%;
+  font-size: 1em;
+}
+
+body{
+  margin-left: 25%;
+  margin-right: 25%;
+}
+*/
