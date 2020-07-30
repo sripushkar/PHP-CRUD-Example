@@ -16,6 +16,22 @@
   <body>
     <?php require_once 'process.php'; ?>
 
+    <?php
+      //pre_r() organizes the array when printing to make easy reading in html. 
+      function pre_r($array){
+        echo '<pre>';
+        print_r($array);
+        echo '</pre>';
+      }
+
+      $mysqli = new mysqli('localhost', 'root', 'root', 'crud') or die(mysqli_error($mysqli));
+      $result = $mysqli->query("SELECT * FROM data") or die($mysqli->error);
+      pre_r($result);
+
+      //fetch_assoc() grabs the first record from the query and returns it as an assoc array.
+      pre_r($result->fetch_assoc());
+    ?>
+
     <div class="row justify-content-center">
     <form action="index.php" method="post">
       <div class="form-group">
